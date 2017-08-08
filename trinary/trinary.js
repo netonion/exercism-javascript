@@ -5,10 +5,13 @@ class Trinary {
   }
 
   toDecimal() {
-    if (/[^0-2]/.test(this.trinary)) return 0;
-    return this.trinary.split('').reduce((acc, x) =>
-      acc * 3 + x.charCodeAt() - '0'.charCodeAt(0)
-    , 0)
+    let decimal = 0;
+    for (let i = 0; i < this.trinary.length; i++) {
+      let c = this.trinary[i];
+      if (c < '0' || c > '2') return 0;
+      decimal = decimal * 3 + c.charCodeAt(0) - '0'.charCodeAt(0);
+    }
+    return decimal;
   }
 }
 
