@@ -7,11 +7,17 @@ class Luhn {
       this.valid = false;
     } else {
       if (digits.length % 2) digits =  '0' + digits;
-      this.valid = digits.split('').reduce((acc, x, i) => {
-        if (i % 2) return acc + Number(x);
-        let d = 2 * Number(x);
-        return d > 9 ? acc + d - 9 : acc + d;
-      }, 0) % 10 === 0;
+
+      let sum = 0;
+      for (let i = 1; i < digits.length; i += 2) {
+        sum += Number(digits[i]);
+      }
+
+      for (let i = 0; i < digits.length; i += 2) {
+        let d = 2 * Number(digits[i]);
+        sum += d > 9 ? d - 9 : d;
+      }
+      this.valid = (sum % 10 === 0);
     }
   }
 
