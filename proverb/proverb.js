@@ -6,7 +6,7 @@ class Proverb {
       this.list = list;
       this.qualifier = last.qualifier + ' ';
     } else {
-      this.list = list.concat([last]);
+      this.list = list.concat(last);
       this.qualifier = '';
     }
   }
