@@ -3,7 +3,7 @@ const items = ['eggs', 'peanuts', 'shellfish', 'strawberries', 'tomatoes', 'choc
 class Allergies {
 
   constructor(score) {
-    this.allergies = items.reduce((acc, x, i) => score & (1 << i) ? acc.concat([x]) : acc, []);
+    this.allergies = items.reduce((acc, x, i) => score & (1 << i) ? acc.concat(x) : acc, []);
   }
 
   list() {
